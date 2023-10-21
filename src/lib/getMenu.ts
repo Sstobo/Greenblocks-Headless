@@ -14,7 +14,6 @@ import {
 
   
   const getMenu = async () => {
-
   
     const client = new ApolloClient({
         uri: process.env.GRAPHQL_ENDPOINT,
@@ -55,6 +54,7 @@ import {
         return result;
     });
     const menus = response?.data?.menus?.edges?.map(({ node }: MenuEdge) => node) || [];
+    console.log('menu', response);
     return menus;
   }
   

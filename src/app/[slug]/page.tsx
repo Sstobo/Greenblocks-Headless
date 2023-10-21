@@ -11,9 +11,9 @@ export default async function Page({ params }: PageProps) {
   return (
   
   <div>
-    {pages.title && <h1 className="text-3xl text-green-50">{pages.title}</h1>  }
+    {pages?.title && <h1 className="text-3xl text-green-50">{pages.title}</h1>  }
     <div className="p-3 text-green-50">
-          {pages.content && <div dangerouslySetInnerHTML={{ __html: pages.content }} />}
+          {pages?.content && <div dangerouslySetInnerHTML={{ __html: pages.content }} />}
     </div>
   </div>
   )
