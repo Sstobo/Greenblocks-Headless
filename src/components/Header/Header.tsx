@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Menu } from "@/types/navigation";
 import getMenu from "@/lib/getMenu";
@@ -26,8 +27,7 @@ export default async function Header({ target }: { target: string }) {
 
 
       </div>
-      test
-
+    
         {headerMenu?.map(
           (item: Menu) =>
             item.slug === target && (
