@@ -12,22 +12,10 @@ export default async function Header({ target }: { target: string }) {
 
       <div className="flex-basis-2 flex-row flex gap-4">
 
-        <Image 
-          src="/next.svg"
-          alt="logo"
-          width={100}
-          height={100}
-        />
-        <Image 
-          src="/wordpress-white.png"
-          alt="logo"
-          width={70}
-          height={70}
-        />
-
+       
 
       </div>
-    
+  
         {headerMenu?.map(
           (item: Menu) =>
             item.slug === target && (
