@@ -24,8 +24,10 @@ export default async function Header({ target }: { target: string }) {
           width={70}
           height={70}
         />
+      </div>
 
-
+      <div>
+        <Link href="/" className="text-base flex justify-center text-green-50 py-3 px-7 border border-green-100 hover:text-green-950 hover:bg-green-50 transition-colors duration-200 ease-in-out">Home</Link>
       </div>
       
         {headerMenu?.map(
