@@ -6,6 +6,6 @@ const nextConfig = {
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['seanstobo.com'],
+    domains: ['seanstobo.com','anvilblocks.wpengine.com'],
   },
 }
