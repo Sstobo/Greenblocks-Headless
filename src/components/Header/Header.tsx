@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import { Menu } from "@/types/navigation";
 import getMenu from "@/lib/getMenu";
