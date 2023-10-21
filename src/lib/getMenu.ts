@@ -19,7 +19,6 @@ import {
         uri: process.env.GRAPHQL_ENDPOINT,
         cache: new InMemoryCache(),
     });
-    
     const response = await client.query({
         query: gql`
         query AllMenus {

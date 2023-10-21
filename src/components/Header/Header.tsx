@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default async function Header({ target }: { target: string }) {
   const headerMenu = await getMenu();
-  console.log(headerMenu)
+  console.log('header', headerMenu)
   return (
     <div className="flex flex-row items-center justify-between  gap-4 p-4">   
 

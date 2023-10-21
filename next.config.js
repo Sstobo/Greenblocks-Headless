@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+
+}
 
 module.exports = {
-    trailingSlash: true,
-  }
+  reactStrictMode: true,
+  images: {
+    domains: ['seanstobo.com'],
+  },
+}
