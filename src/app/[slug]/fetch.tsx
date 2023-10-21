@@ -1,28 +1,29 @@
-import {PageQueryResult} from "./types";
+import { PageQueryResult } from "./types";
 
-async function fetchPageData(uri: string) {
+async function fetchPageData(slug: string) {
+  console.log('slug', slug);
     const GRAPHQL_URL = process.env.GRAPHQL_ENDPOINT || "";
-    const postQuery = `
-    query CurrentPage($uri: String!) {
-        pageBy(uri: $uri) {
-          content
-          date
-          databaseId
-          featuredImageId
-          pageId
-          parentId
-          slug
-          title
-          uri
-        }
-      }`;
+    const pageQuery = `
+          query CurrentPage($uri: String!) {
+            pageBy(uri: $uri) {
+            content
+            date
+            databaseId
+            featuredImageId
+            pageId
+            parentId
+            slug
+            title
+            uri
+          }
+        }`;
    
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        query: postQuery,
-        variables: { uri },
+        query: pageQuery,
+        variables: { uri: slug },
       }),
     };
     
@@ -32,8 +33,9 @@ async function fetchPageData(uri: string) {
       throw new Error(`Failed to fetch the data`);
     }
     const data: PageQueryResult = await res.json();
-   
-    return data.data.pageBy;
+    console.log(data);
+    return data?.data?.pageBy;
    }
+   
 
    export default fetchPageData;

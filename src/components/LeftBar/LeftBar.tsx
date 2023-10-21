@@ -8,21 +8,13 @@ export default async function LeftBar() {
   const allPosts = await getAllPosts();
 
   return (
-    <div className="flex flex-row items-center justify-between p-3">
+    <div className="flex flex-col p-3">
+        <h2 className="text-lg text-green-50 ">Recent Posts:</h2>
         {allPosts && allPosts?.map((post: any) => (
             <div key={post.slug} className="text-lg">
-              
-                <a href={`/posts/${post.slug}`}>{post.title}</a>
+                <a className="text-xs text-green-50 underline"   href={`/posts/${post.slug}`}>{post.title}</a>
             </div>
         ))}
-
-        {/* {allPagesList && allPagesList?.map((page: allPages) => (
-            <div key={page.uri} className="text-lg">
-                <Link href={`${page.uri}`}>
-                    <a>{page.title}</a>
-                </Link>
-            </div>
-        ))} */}
     </div>
   );
 }

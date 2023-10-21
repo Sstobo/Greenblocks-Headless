@@ -38,7 +38,7 @@ export default function RootLayout({
           </div>
 
           {/* content */}
-          <div className="flex flex-col min-h-screen basis-3/4 p-4">
+          <div className="flex flex-col min-h-screen basis-3/4 p-6">
             <Suspense fallback={<Loading />}>{children}</Suspense>
           </div>
 
