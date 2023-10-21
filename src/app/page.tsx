@@ -1,5 +1,3 @@
-import getCurrentPage from "@/lib/getCurrentPage";
-
 export default async function Page() {
   // get current url, query THAT page in the db, return here
   return (
