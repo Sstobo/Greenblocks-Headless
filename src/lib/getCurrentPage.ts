@@ -24,8 +24,7 @@ interface CurrentResponse {
 
 const getCurrentPage = async (uri: string) => {
   const client = new ApolloClient({
-      // uri: process.env.GRAPHQL_ENDPOINT,
-      uri: "https://seanstobo.com/graphql",
+      uri: process.env.GRAPHQL_ENDPOINT,
       cache: new InMemoryCache(),
   });
 

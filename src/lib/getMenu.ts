@@ -16,7 +16,7 @@ import {
   const getMenu = async () => {
   
     const client = new ApolloClient({
-        uri: "https://seanstobo.com/graphql",
+        uri: process.env.GRAPHQL_ENDPOINT,
         cache: new InMemoryCache(),
     });
     
