@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 // SINGLE BLOG POST
 
 async function getCurrentPosts(slug: string) {
@@ -25,13 +24,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <p className="text-xl mb-6">{post?.CaseStudyCPT?.externalLink}</p>
           </a>
           )}
-          <Image
-            src={post.featuredImage.node.sourceUrl}
-            alt={post.title}
-            width={500}
-            height={300}
-            className="mb-3 rounded border border-green-50"
-          />
+      
+              <Image
+                src={post.featuredImage.node.sourceUrl}
+                alt={post.title}
+                width={500}
+                height={300}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+                className="mb-3 rounded border border-green-50 "
+              />
+   
        
          
             {post?.content && (
@@ -51,7 +54,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               alt={post.CaseStudyCPT?.imageOne?.altText || 'An image of the project'}
               width={500}
               height={300}
-              className="my-3 rounded border border-green-50"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+              className="mb-3 mt-6 rounded border border-green-50"
               />
             )}
 
@@ -65,7 +70,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               alt={post.CaseStudyCPT?.imageTwo?.altText || 'An image of the project'}
               width={500}
               height={300}
-              className="my-3 rounded border border-green-50"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+              className="mb-3 mt-6 rounded border border-green-50"
               />
             )}
 
@@ -75,7 +82,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               alt={post.CaseStudyCPT?.imageThree?.altText || 'An image of the project'}
               width={500}
               height={300}
-              className="my-3 rounded border border-green-50"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+              className="mb-3 mt-6 rounded border border-green-50"
               />
             )}
 

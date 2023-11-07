@@ -25,6 +25,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             alt={post.title}
             width={500}
             height={300}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
             className="mb-8"
           />
           <div className="p-3 text-green-50">
