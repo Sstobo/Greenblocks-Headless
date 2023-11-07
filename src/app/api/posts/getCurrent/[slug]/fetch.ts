@@ -1,7 +1,32 @@
-import { PostQueryResult } from "./types";
+export interface Post {
+    content: string;
+    date: string;
+    title: string;
+    uri: string;
+    slug: string;
+    featuredImage: {
+      node: {
+        uri: string;
+        sourceUrl: string;
+        title: string;
+        altText: string;
+      };
+    };
+  }
+  
+  export interface PostData {
+    postBy: Post;
+  }
+  
+  export interface PostQueryResult {
+    data: {
+      postBy: Post;
+    };
+  }
 
 
-async function fetchPostData(slug: string) {
+
+async function getCurrentPosts(slug: string) {
     const GRAPHQL_URL = process.env.GRAPHQL_ENDPOINT || "";
     const postQuery = `
       query PostBySlug($slug: String!) {
@@ -36,9 +61,10 @@ async function fetchPostData(slug: string) {
     if (!res.ok) {
       throw new Error(`Failed to fetch the data`);
     }
-    const data: PostQueryResult = await res.json();
+    const response: PostQueryResult = await res.json();
+    console.log(response);
    
-    return data.data.postBy;
+    return response.data.postBy;
    }
 
-   export default fetchPostData;
+   export default getCurrentPosts;

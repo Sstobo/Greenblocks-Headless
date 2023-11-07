@@ -1,25 +1,39 @@
 import Image from "next/image";
-import fetchPostData  from "./fetch";
 
 // SINGLE BLOG POST
 
- export default async function Page({ params }: { params: { slug: string } }) {
-  const post = await fetchPostData(params.slug);
+async function getCurrentPosts(slug: string) {
+  const res = await fetch(`http://localhost:3000/api/posts/getCurrent/${slug}`);
+  console.log(res);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
+  const post = await getCurrentPosts(slug);
+
   return (
-     <div>
-       <h1 className="text-3xl text-green-50 pb-6">{post.title}</h1>
-       <Image
-          src={post.featuredImage.node.sourceUrl}
-          alt={post.title}
-          width={500}
-          height={300}
-          className="mb-8"
-       />
-       <div className="p-3 text-green-50">
-         {post?.content && (
-           <div dangerouslySetInnerHTML={{ __html: post.content }} />
-         )}
-       </div>
-     </div>
+    <div>
+      {post && (
+        <div>
+          <h1 className="text-3xl text-green-50 pb-6">{post.title}</h1>
+          <Image
+            src={post.featuredImage.node.sourceUrl}
+            alt={post.title}
+            width={500}
+            height={300}
+            className="mb-8"
+          />
+          <div className="p-3 text-green-50">
+            {post?.content && (
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

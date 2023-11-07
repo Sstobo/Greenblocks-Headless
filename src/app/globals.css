@@ -42,6 +42,10 @@ body {
   }
 }
 
-.post-content p {
-  @apply pb-4;
+.page-content p, .page-content li, .page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6 {
+    @apply pb-3 !important;
+}
+
+.page-content img {
+  @apply mb-9 !important;
 }

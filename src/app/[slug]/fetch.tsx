@@ -1,7 +1,6 @@
 import { PageQueryResult } from "./types";
 
 async function fetchPageData(slug: string) {
-  console.log('slug', slug);
     const GRAPHQL_URL = process.env.GRAPHQL_ENDPOINT || "";
     const pageQuery = `
           query CurrentPage($uri: String!) {
@@ -37,5 +36,4 @@ async function fetchPageData(slug: string) {
     return data?.data?.pageBy;
    }
    
-
    export default fetchPageData;

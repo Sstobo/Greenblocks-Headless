@@ -3,9 +3,7 @@ import ShimmerEffect from "@/components/utils/ShimmerEffect";
 
 const Loading = () => {
     return (
-    
         <ShimmerEffect />
-  
     );
   };
   
