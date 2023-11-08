@@ -1,23 +1,12 @@
+
 import React from "react";
 import Link from "next/link";
 import { get } from "http";
 
 
-async function getAllPosts() {
-  const res = await fetch('https://greenblocks-headless.vercel.app/api/posts/getAll', { cache: 'no-store' })
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-};
+import getAllPosts from "@/lib/getAllPosts";
+import getAllCaseStudies from "@/lib/getAllCaseStudies";
 
-async function getAllCaseStudies() {
-  const res = await fetch('https://greenblocks-headless.vercel.app/api/case-studies/getAll', { cache: 'no-store' })
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-};
 
 
 export default async function LeftBar() {
