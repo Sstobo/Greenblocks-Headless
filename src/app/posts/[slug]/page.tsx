@@ -3,7 +3,7 @@ import Image from "next/image";
 // SINGLE BLOG POST
 
 async function getCurrentPosts(slug: string) {
-  const res = await fetch(`http://localhost:3000/api/posts/getCurrent/${slug}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/getCurrent/${slug}`);
   console.log(res);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
