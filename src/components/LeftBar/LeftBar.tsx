@@ -4,7 +4,7 @@ import { get } from "http";
 
 
 async function getAllPosts() {
-  const res = await fetch('http://localhost:3000/api/posts/getAll', { cache: 'no-store' })
+  const res = await fetch('https://greenblocks-headless.vercel.app/api/posts/getAll', { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -12,7 +12,7 @@ async function getAllPosts() {
 };
 
 async function getAllCaseStudies() {
-  const res = await fetch('http://localhost:3000/api/case-studies/getAll', { cache: 'no-store' })
+  const res = await fetch('https://greenblocks-headless.vercel.app/api/case-studies/getAll', { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
