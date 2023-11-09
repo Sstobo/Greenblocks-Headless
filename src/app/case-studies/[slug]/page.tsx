@@ -2,7 +2,9 @@ import Image from "next/image";
 // SINGLE BLOG POST
 
 async function getCurrentPosts(slug: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/case-studies/getCurrent/${slug}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/case-studies/getCurrent/${slug}`
+  );
   console.log(res);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -13,81 +15,83 @@ async function getCurrentPosts(slug: string) {
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
   const post = await getCurrentPosts(slug);
-  console.log('xx1', post);
   return (
     <div>
       {post && (
         <div className="text-green-50">
           <h1 className="text-3xl  mb-6">{post.title}</h1>
           {post?.CaseStudyCPT?.externalLink && (
-          <a href={post?.CaseStudyCPT?.externalLink}>
-          <p className="text-xl mb-6">{post?.CaseStudyCPT?.externalLink}</p>
-          </a>
+            <a href={post?.CaseStudyCPT?.externalLink}>
+              <p className="text-xl mb-6">{post?.CaseStudyCPT?.externalLink}</p>
+            </a>
           )}
-      
-              <Image
-                src={post.featuredImage.node.sourceUrl}
-                alt={post.title}
-                width={500}
-                height={300}
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                className="mb-3 rounded border border-green-50 "
-              />
-   
-       
-         
-            {post?.content && (
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            )}
-         
 
-          
-            {post?.CaseStudyCPT?.primaryContent && (
-              <div dangerouslySetInnerHTML={{ __html: post.CaseStudyCPT.primaryContent }} />
-            )}
+          <Image
+            src={post.featuredImage.node.sourceUrl}
+            alt={post.title}
+            width={500}
+            height={300}
+            className="mb-3 rounded border border-green-50 "
+          />
 
+          {post?.content && (
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          )}
 
-            {post?.CaseStudyCPT?.imageOne?.sourceUrl && (
-              <Image
+          {post?.CaseStudyCPT?.primaryContent && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.CaseStudyCPT.primaryContent,
+              }}
+            />
+          )}
+
+          {post?.CaseStudyCPT?.imageOne?.sourceUrl && (
+            <Image
               src={post.CaseStudyCPT.imageOne.sourceUrl}
-              alt={post.CaseStudyCPT?.imageOne?.altText || 'An image of the project'}
+              alt={
+                post.CaseStudyCPT?.imageOne?.altText ||
+                "An image of the project"
+              }
               width={500}
               height={300}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
               className="mb-3 mt-6 rounded border border-green-50"
-              />
-            )}
+            />
+          )}
 
-            {post?.CaseStudyCPT?.secondaryContent && (
-              <div dangerouslySetInnerHTML={{ __html: post.CaseStudyCPT.secondaryContent }} />
-            )}
+          {post?.CaseStudyCPT?.secondaryContent && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.CaseStudyCPT.secondaryContent,
+              }}
+            />
+          )}
 
-            {post?.CaseStudyCPT?.imageTwo?.sourceUrl && (
-              <Image
+          {post?.CaseStudyCPT?.imageTwo?.sourceUrl && (
+            <Image
               src={post.CaseStudyCPT.imageTwo.sourceUrl}
-              alt={post.CaseStudyCPT?.imageTwo?.altText || 'An image of the project'}
+              alt={
+                post.CaseStudyCPT?.imageTwo?.altText ||
+                "An image of the project"
+              }
               width={500}
               height={300}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
               className="mb-3 mt-6 rounded border border-green-50"
-              />
-            )}
+            />
+          )}
 
-              {post?.CaseStudyCPT?.imageThree?.sourceUrl && (
-              <Image
+          {post?.CaseStudyCPT?.imageThree?.sourceUrl && (
+            <Image
               src={post.CaseStudyCPT.imageThree.sourceUrl}
-              alt={post.CaseStudyCPT?.imageThree?.altText || 'An image of the project'}
+              alt={
+                post.CaseStudyCPT?.imageThree?.altText ||
+                "An image of the project"
+              }
               width={500}
               height={300}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
               className="mb-3 mt-6 rounded border border-green-50"
-              />
-            )}
-
+            />
+          )}
         </div>
       )}
     </div>

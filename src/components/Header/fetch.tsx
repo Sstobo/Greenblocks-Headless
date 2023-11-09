@@ -35,6 +35,7 @@ export async function fetchMenus(): Promise<MenuData[]> {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
+       cache: 'no-store' 
     });
 
     if (!response.ok) {

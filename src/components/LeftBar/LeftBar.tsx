@@ -1,13 +1,9 @@
-
 import React from "react";
 import Link from "next/link";
 import { get } from "http";
 
-
 import getAllPosts from "@/lib/getAllPosts";
 import getAllCaseStudies from "@/lib/getAllCaseStudies";
-
-
 
 export default async function LeftBar() {
   const allCases = await getAllCaseStudies();
@@ -15,7 +11,6 @@ export default async function LeftBar() {
 
   return (
     <div className="flex flex-col p-3">
-   
       <h2 className="text-lg text-green-50 ">Recent Posts:</h2>
       {allPosts &&
         allPosts?.map((post: any) => (
@@ -34,8 +29,7 @@ export default async function LeftBar() {
           </div>
         ))}
 
-
-<h2 className="text-lg mt-7 text-green-50 ">Recent Case Studies:</h2>
+      <h2 className="text-lg mt-7 text-green-50 ">Recent Case Studies:</h2>
       {allCases &&
         allCases?.map((post: any) => (
           <div key={post.slug} className="pt-4">
@@ -52,8 +46,6 @@ export default async function LeftBar() {
             </div>
           </div>
         ))}
-
-
     </div>
   );
 }
